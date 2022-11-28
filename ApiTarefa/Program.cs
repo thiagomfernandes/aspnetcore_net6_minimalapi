@@ -38,6 +38,19 @@ app.MapGet("/tarefas/{id}", async (int id, ApiTarefasDbContext db) =>
     }
 );
 
+app.MapGet("/tarefas/concluidas", async (ApiTarefasDbContext db) =>
+{
+    var concluidas = await db.Tarefas.Where(t => t.IsConcluida).ToListAsync();
+    return concluidas;
+}
+);
+
+app.MapGet("/tarefas", async (ApiTarefasDbContext db) =>
+{
+    return await db.Tarefas.ToListAsync();
+}
+);
+
 app.MapPut("/tarefas/{id}", async (int id, Tarefa input, ApiTarefasDbContext db) =>
 {
     var tarefa = await db.Tarefas.FindAsync(id);
@@ -64,19 +77,6 @@ app.MapDelete("/tarefas/{id}", async (int id, ApiTarefasDbContext db) =>
 
     return Results.Ok(tarefa);
         
-}
-);
-
-app.MapGet("/tarefas/concluidas", async (ApiTarefasDbContext db) =>
-{
-    var concluidas = await db.Tarefas.Where( t => t.IsConcluida).ToListAsync();
-    return concluidas;
-}
-);
-
-app.MapGet("/tarefas", async (ApiTarefasDbContext db) =>
-{
-    return await db.Tarefas.ToListAsync();
 }
 );
 
