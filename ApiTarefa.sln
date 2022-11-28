@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTarefa", "ApiTarefa\ApiTarefa.csproj", "{3C7A5D0F-3A9E-436D-8332-BD055F7A1095}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C7A5D0F-3A9E-436D-8332-BD055F7A1095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7A5D0F-3A9E-436D-8332-BD055F7A1095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C7A5D0F-3A9E-436D-8332-BD055F7A1095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C7A5D0F-3A9E-436D-8332-BD055F7A1095}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CE802C4-BE6A-43BC-B9FB-326D78E304C1}
+	EndGlobalSection
+EndGlobal
