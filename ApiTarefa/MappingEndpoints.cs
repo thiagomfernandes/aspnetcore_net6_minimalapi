@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 
 public static class MappingEndpoints
 {
@@ -10,7 +11,13 @@ public static class MappingEndpoints
             await new HttpClient().GetStringAsync("https://ron-swanson-quotes.herokuapp.com/v2/quotes")
         );
 
-        app.MapGet("/tarefas/{id}", async (int id, ApiTarefasDbContext db) =>
+        app.MapGet("/tarefas/author", (IConfiguration config) =>
+        {
+            return Results.Ok(config["author"]);
+        }
+        );
+
+        app.MapGet("/tarefas/{id}", async (int id, ApiTarefasDbContext db, IConfiguration config) =>
         {
             var tarefa = await db.Tarefas.FindAsync(id);
             if (tarefa is Tarefa)
@@ -64,6 +71,9 @@ public static class MappingEndpoints
 
         app.MapPost("/tarefas", async (Tarefa tarefa, ApiTarefasDbContext db) =>
         {
+            //if (!ModelState.IsValid)
+            //    return Results.BadRequest(ModelState);
+
             db.Tarefas.Add(tarefa);
             await db.SaveChangesAsync();
             return Results.Created($"/tarefas/{tarefa.Id}", tarefa);
